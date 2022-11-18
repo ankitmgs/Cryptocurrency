@@ -19,7 +19,12 @@
   flex-wrap: wrap;
   height: 20rem;
   width: 15rem;
-  /* background-color: red; */
+  background-color: rgba(128, 128, 128, 0.037);
+}
+.top-card :hover{
+    /* background-color: rgba(128, 128, 128, 0.155); */
+    transform: scale(1.1);
+    transition-duration: 150ms;
 }
 .exchange-img {
   width: 10rem;
@@ -38,7 +43,7 @@
     justify-content: center;
     font-size: x-large;
     font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .exchange-name{
     font-size: larger;
