@@ -1,0 +1,50 @@
+.card {
+  box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0.4);
+  transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+.coinexchangecard :hover {
+  transform: scale(1.1);
+  transition-duration: 1ms;
+}
+.exchange-details {
+  color: rgba(0, 0, 0, 0.849);
+}
+
+.exchangecard {
+  border: 1px solid black;
+  width: 18rem;
+  border-radius: 10px;
+  float: left;
+  margin: 10px;
+  flex-wrap: wrap;
+  height: 20rem;
+  width: 15rem;
+  /* background-color: red; */
+}
+.exchange-img {
+  width: 10rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+.exchange-img-top{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.exchange-rank{
+    margin-top: 1rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+.exchange-name{
+    font-size: larger;
+    font-weight: 500;
+    font-family: 'Times New Roman', Times, serif;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
