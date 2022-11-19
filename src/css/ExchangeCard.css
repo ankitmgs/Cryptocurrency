@@ -1,15 +1,3 @@
-.card {
-  box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0.4);
-  transition: width 2s, height 2s, background-color 2s, transform 2s;
-}
-.coinexchangecard :hover {
-  transform: scale(1.1);
-  transition-duration: 1ms;
-}
-.exchange-details {
-  color: rgba(0, 0, 0, 0.849);
-}
-
 .exchangecard {
   border: 1px solid black;
   width: 18rem;

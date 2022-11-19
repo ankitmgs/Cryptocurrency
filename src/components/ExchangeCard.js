@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/ExchangeCard.css";
 
-const ExchangeCard = ({ key, img, name, rank, url }) => {
+const ExchangeCard = ({ img, name, rank, url }) => {
   return (
     <div className="container">
       <div className="top-card">

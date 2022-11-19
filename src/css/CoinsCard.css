@@ -1,0 +1,51 @@
+.coincard {
+    border: 1px solid black;
+    width: 18rem;
+    border-radius: 10px;
+    float: left;
+    margin: 10px;
+    flex-wrap: wrap;
+    height: 20rem;
+    width: 15rem;
+    background-color: rgba(128, 128, 128, 0.037);
+  }
+  .coin-top-card :hover{
+      /* background-color: rgba(128, 128, 128, 0.155); */
+      transform: scale(1.1);
+      transition-duration: 150ms;
+  }
+  .coin-img {
+    width: 10rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+  }
+  .coin-img-top{
+      align-items: center;
+      display: flex;
+      justify-content: center;
+  }
+  .coin-name{
+      margin-top: 1rem;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      font-size: x-large;
+      font-weight: bold;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .coin-symbol{
+      font-size: larger;
+      font-weight: 500;
+      font-family: 'Times New Roman', Times, serif;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+  }
+  .coin-current-symbol{
+      font-size: larger;
+      font-weight: 800;
+      font-family: 'Times New Roman', Times, serif;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+  }

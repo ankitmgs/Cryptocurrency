@@ -26,18 +26,12 @@ const Exchange = () => {
       } catch (error) {
         setError(true);
       }
-      const { data } = await axios.get(`${server}/exchanges`);
-
-      console.log(data);
-      setLoading(false);
-
-      setExchanges(data);
     };
     fetchExchanges();
   }, []);
 
   if(error){
-    return (<Error />)
+    return (<Error msg={"Error while fetching Exchanges"} />)
   }
 
   return (
