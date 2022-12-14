@@ -1,0 +1,16 @@
+.pagination{
+    display: inline-block;
+    /* width: 100hh; */
+    /* overflow: scroll; */
+    margin: 5rem 8rem 2rem 8rem;
+}
+.pagination button{
+    margin: 5px;
+    border-radius: 6px;
+    color: white;
+    background-color: black;
+}
+/* .pagination-btn :hover{
+    color: black;
+    background-color: white;
+} */
