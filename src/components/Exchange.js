@@ -39,7 +39,7 @@ const Exchange = () => {
       {loading ? (
         <Loader />
       ) : (
-        <>
+        <div>
           {exchanges.map((i) => (
             <ExchangeCard
               key={i.id}
@@ -49,7 +49,7 @@ const Exchange = () => {
               url={i.url}
             />
           ))}
-        </>
+        </div>
       )}
     </div>
   );

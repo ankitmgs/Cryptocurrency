@@ -5,31 +5,83 @@ import Loader from "./Loader";
 import { useParams } from "react-router-dom";
 import Error from "./Error";
 import { height } from "@mui/system";
+import Chart from "./Chart";
 
 const CoinDetails = () => {
+  const params = useParams();
   const [coin, setCoin] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [currency, setCurrency] = useState("inr");
+  const [days, setDays] = useState("24h");
+  const [chartArray, setChartArray] = useState([]);
 
   const currentSymbol =
     currency === "inr" ? "₹" : currency === "eur" ? "€" : "$";
 
-  const params = useParams();
+  const btns = ["24h", "7d", "14d", "30d", "60d", "90d", "365d", "Max"];
+
+  const switchChartStats = (key) => {
+    switch (key) {
+      case "24h":
+        setDays("24h");
+        setLoading(true);
+        break;
+      case "7d":
+        setDays("7d");
+        setLoading(true);
+        break;
+      case "14d":
+        setDays("14d");
+        setLoading(true);
+        break;
+      case "30d":
+        setDays("30d");
+        setLoading(true);
+        break;
+      case "60d":
+        setDays("60d");
+        setLoading(true);
+        break;
+      case "90d":
+        setDays("90d");
+        setLoading(true);
+        break;
+      case "365d":
+        setDays("365d");
+        setLoading(true);
+        break;
+      case "Max":
+        setDays("Max");
+        setLoading(true);
+        break;
+
+      default:
+        setDays("24h");
+        setLoading(true);
+        break;
+    }
+  };
 
   useEffect(() => {
     const fetchCoin = async () => {
       try {
         const { data } = await axios.get(`${server}/coins/${params.id}`);
         console.log(data);
+
+        const { data: chartData } = await axios.get(
+          `${server}/coins/${params.id}/market_chart?vs_currency=${currency}&days=${days}`
+        );
+        console.log(chartData.prices);
         setCoin(data);
+        setChartArray(chartData.prices);
         setLoading(false);
       } catch (error) {
         setError(true);
       }
     };
     fetchCoin();
-  }, [params.id]);
+  }, [params.id, currency, days]);
 
   if (error) return <Error msg={"Error while fetching coins"} />;
 
@@ -38,7 +90,7 @@ const CoinDetails = () => {
       {loading ? (
         <Loader />
       ) : (
-        <>
+        <div>
           <div
             className="radio-group d-flex justify-content-center"
             style={{
@@ -69,10 +121,25 @@ const CoinDetails = () => {
             />
             € EUR
           </div>
+          <div>
+            <Chart arr={chartArray} currency={currentSymbol} days={days} />
+          </div>
+          <div className="container d-flex justify-content-around" style={{overflowX: "auto"}} >
+            {btns.map((i) => (
+              <button
+                style={{ border: "1px solid gray" }}
+                key={i}
+                onClick={() => switchChartStats(i)}
+                className="px-2 btn btn-light"
+              >
+                {i}
+              </button>
+            ))}
+          </div>
           <div className="d-flex justify-content-center">
-            <text>
+            <span>
               Last update On {Date(coin.market_data.last_updated).split("G")[0]}
-            </text>
+            </span>
           </div>
           <div className="">
             <img src={coin.image.large} width="70px" height="70px" />
@@ -126,14 +193,14 @@ const CoinDetails = () => {
               value={`${currentSymbol}${coin.market_data.ath[currency]}`}
             />
           </div>
-        </>
+        </div>
       )}
     </div>
   );
 };
 
 const CustomBar = ({ high, low }) => (
-  <>
+  <div>
     <div className="progress">
       <div
         className="progress-bar"
@@ -172,7 +239,7 @@ const CustomBar = ({ high, low }) => (
       </div>
       <div className="d-flex justify-content-center">24H Range</div>
     </div>
-  </>
+  </div>
 );
 
 const Items = ({ title, value }) => (

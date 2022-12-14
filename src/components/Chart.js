@@ -1,32 +1,55 @@
 import React from "react";
-import { Line } from "react-chatjs-2";
+import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
-  CatarogyScale,
+  CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
-  ChartTitleOptions,
   Tooltip,
   Legend,
 } from "chart.js";
 
 ChartJS.register(
-  CatarogyScale,
+  CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
-  ChartTitleOptions,
   Tooltip,
   Legend
 );
 
-const Chart = ({arr=[], currency, days}) => {
+const Chart = ({ arr = [], currency, days }) => {
+  const prices = [];
+  const date = [];
+  const data = {
+    labels: date,
+    datasets: [
+      {
+        label: `Price in ${currency}`,
+        data: prices,
+        borderColor: "rgb(255,99,132)",
+        backgroundColor: "rgbs(255,99,132,0.5)",
+      },
+    ],
+  };
 
-const prices = [1,2,3,4,5];
-const date = ["12/12/22", "11/06/19", "28/08/01"]
-    const data = {}
-  return <div><Line options={{responsive: true}} data={data} /></div>;
+
+  for (let i = 0; i < arr.length; i++) {
+    if(days === "24h") date.push(new Date(arr[i][0]).toLocaleTimeString());
+    else date.push(new Date(arr[i][0]).toLocaleDateString());
+    prices.push(arr[i][1]);    
+  }
+  console.log(date);
+  console.log(prices);
+  return (
+    <div>
+      <Line
+        options={{ responsive: true }}
+        data={data}
+      />
+    </div>
+  );
 };
 
 export default Chart;

@@ -46,7 +46,7 @@ const Coins = () => {
       {loading ? (
         <Loader />
       ) : (
-        <>
+        <div>
           <div
             className="radio-group d-flex justify-content-center"
             style={{
@@ -100,7 +100,7 @@ const Coins = () => {
               ))}
             </footer>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
