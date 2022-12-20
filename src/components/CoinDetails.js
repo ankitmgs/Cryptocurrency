@@ -4,7 +4,6 @@ import { server } from "..";
 import Loader from "./Loader";
 import { useParams } from "react-router-dom";
 import Error from "./Error";
-import { height } from "@mui/system";
 import Chart from "./Chart";
 
 const CoinDetails = () => {
@@ -124,7 +123,10 @@ const CoinDetails = () => {
           <div>
             <Chart arr={chartArray} currency={currentSymbol} days={days} />
           </div>
-          <div className="container d-flex justify-content-around" style={{overflowX: "auto"}} >
+          <div
+            className="container d-flex justify-content-around"
+            style={{ overflowX: "auto" }}
+          >
             {btns.map((i) => (
               <button
                 style={{ border: "1px solid gray" }}
@@ -138,7 +140,8 @@ const CoinDetails = () => {
           </div>
           <div className="d-flex justify-content-center">
             <span>
-              Last update On {Date(coin.market_data.last_updated).split("G")[0]}
+              Last Updated On
+              {Date(coin.market_data.last_updated)}
             </span>
           </div>
           <div className="">
