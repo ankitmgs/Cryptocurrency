@@ -62,6 +62,15 @@ const CoinDetails = () => {
     }
   };
 
+  // const f1 = () => {
+  //   console.log();
+  // }
+
+  // useEffect(() => {
+  //   f1();
+  // }, [])
+  
+
   useEffect(() => {
     const fetchCoin = async () => {
       try {
